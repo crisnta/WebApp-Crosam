@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using crosam.Data;
 
 namespace crosam.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201110010732_Migracion-Location")]
+    partial class MigracionLocation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -146,21 +148,6 @@ namespace crosam.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("crosam.Models.Location", b =>
-                {
-                    b.Property<int>("LocationID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("LocationName")
-                        .HasColumnType("TEXT")
-                        .HasMaxLength(20);
-
-                    b.HasKey("LocationID");
-
-                    b.ToTable("Location");
                 });
 
             modelBuilder.Entity("crosam.Models.User", b =>

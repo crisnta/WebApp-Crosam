@@ -1,4 +1,4 @@
-# Herramienta dotnet-asp-generator
+# Herramienta dotnet-asp-generator  
 
 ## Para poder ver los archivos de páginas de **ASP.NET** Core Identity
 ~~~
@@ -16,4 +16,11 @@ dotnet tool uninstall --global dotnet-aspnet-codegenerator
 Acceder a la ayuda de la herramienta
 ~~~
 dotnet aspnet-codegenerator --help
+~~~
+
+---
+## Generar Codigo del Controlador
+- Generar Controlador `aspnet generator`
+~~~bash
+dotnet aspnet-codegenerator controller -name LocationController -m Location -dc ApplicationDbContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
 ~~~

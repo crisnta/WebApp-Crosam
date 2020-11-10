@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -13,6 +13,8 @@ namespace crosam.Data
             : base(options)
         {
         }
+
+        public DbSet<Location> Locations;   
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -31,8 +33,20 @@ namespace crosam.Data
                  .HasMaxLength(1);
 
              });
+
+             builder.Entity<Location>(entityTypeBuilder =>
+             {
+                 entityTypeBuilder.ToTable("Location");
+
+    
+                 entityTypeBuilder.Property(l => l.LocationName)
+                 .HasMaxLength(20);
+
+             });
  
         }
+
+        public DbSet<crosam.Models.Location> Location { get; set; }
 
     }
 }

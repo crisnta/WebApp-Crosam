@@ -40,4 +40,3 @@ Listar las herramientas instaladas en el sistema extendida de dotnet de manera g
 dotnet tool list --global
 ```
 
-a
