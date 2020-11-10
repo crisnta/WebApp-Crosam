@@ -1,21 +1,25 @@
-@model crosam.Models.Location
+@model crosam.Models.Seeder
 
 @{
     ViewData["Title"] = "Create";
 }
 
-<h1>Ingresar</h1>
+<h1>Ingresar Sembradora</h1>
 
-<h4>Ubicación</h4>
+<h4>Sembradora</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="LocationName" class="control-label"></label>
-                <input asp-for="LocationName" class="form-control" />
-                <span asp-validation-for="LocationName" class="text-danger"></span>
+                <label asp-for="LocationID" class="control-label"></label>
+                <select asp-for="LocationID" class ="form-control" asp-items="ViewBag.LocationID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeederName" class="control-label"></label>
+                <input asp-for="SeederName" class="form-control" />
+                <span asp-validation-for="SeederName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

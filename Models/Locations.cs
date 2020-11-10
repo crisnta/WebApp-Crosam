@@ -9,10 +9,9 @@ namespace crosam.Models
         public int LocationID { get; set; }
         
         public string LocationName { get; set; }
+        public ICollection<Seeder> seeders { get; set; }
 
     }
-
-
 
 
 
