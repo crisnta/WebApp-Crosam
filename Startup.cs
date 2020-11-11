@@ -13,10 +13,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using crosam.Models;
-
+//asdasd 
 namespace crosam
-{
-    public class Startup
+{    public class Startup
     {
         public Startup(IConfiguration configuration)
         {
@@ -69,4 +68,3 @@ namespace crosam
         }
     }
 }
-//ssssssssssssssss
