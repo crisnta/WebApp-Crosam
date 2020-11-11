@@ -16,6 +16,8 @@ namespace crosam.Data
 
         public DbSet<Location> Locations;   
         public DbSet<Seeder> Seeders; 
+         public DbSet<Supplier> Suppliers; 
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -54,12 +56,24 @@ namespace crosam.Data
                  .HasMaxLength(20);
 
              });
+
+             builder.Entity<Supplier>(entityTypeBuilder =>
+             {
+                 entityTypeBuilder.ToTable("Supplier");
+
+    
+                 entityTypeBuilder.Property(su => su.SupplierName)
+                 .HasMaxLength(20);
+
+             });
  
         }
 
         public DbSet<crosam.Models.Location> Location { get; set; }
 
         public DbSet<crosam.Models.Seeder> Seeder { get; set; }
+
+        public DbSet<crosam.Models.Supplier> Supplier { get; set; }
 
     }
 }

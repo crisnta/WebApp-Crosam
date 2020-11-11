@@ -10,7 +10,9 @@ namespace crosam.Models
         
         public string LocationName { get; set; }
         public ICollection<Seeder> seeders { get; set; }
-
+        
+        public virtual ICollection<Supplier> Suppliers { get; set;}
+        
     }
 
 

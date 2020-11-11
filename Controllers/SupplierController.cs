@@ -10,23 +10,23 @@ using crosam.Models;
 
 namespace crosam.Controllers
 {
-    public class SeederController : Controller
+    public class SupplierController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public SeederController(ApplicationDbContext context)
+        public SupplierController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Seeder
+        // GET: Supplier
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Seeder.Include(s => s.Location);
+            var applicationDbContext = _context.Supplier.Include(s => s.Location);
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Seeder/Details/5
+        // GET: Supplier/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -34,42 +34,42 @@ namespace crosam.Controllers
                 return NotFound();
             }
 
-            var seeder = await _context.Seeder
+            var supplier = await _context.Supplier
                 .Include(s => s.Location)
-                .FirstOrDefaultAsync(m => m.SeederID == id);
-            if (seeder == null)
+                .FirstOrDefaultAsync(m => m.SupplierId == id);
+            if (supplier == null)
             {
                 return NotFound();
             }
 
-            return View(seeder);
+            return View(supplier);
         }
 
-        // GET: Seeder/Create
+        // GET: Supplier/Create
         public IActionResult Create()
         {
-            ViewData["LocationID"] = new SelectList(_context.Location, "LocationID", "LocationName");
+            ViewData["LocationId"] = new SelectList(_context.Location, "LocationID", "LocationName");
             return View();
         }
 
-        // POST: Seeder/Create
+        // POST: Supplier/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SeederID,LocationID,SeederName")] Seeder seeder)
+        public async Task<IActionResult> Create([Bind("SupplierId,LocationId,SupplierName")] Supplier supplier)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(seeder);
+                _context.Add(supplier);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["LocationID"] = new SelectList(_context.Location, "LocationID", "LocationID", seeder.LocationID);
-            return View(seeder);
+            ViewData["LocationId"] = new SelectList(_context.Location, "LocationID", "LocationID", supplier.LocationId);
+            return View(supplier);
         }
 
-        // GET: Seeder/Edit/5
+        // GET: Supplier/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -77,23 +77,23 @@ namespace crosam.Controllers
                 return NotFound();
             }
 
-            var seeder = await _context.Seeder.FindAsync(id);
-            if (seeder == null)
+            var supplier = await _context.Supplier.FindAsync(id);
+            if (supplier == null)
             {
                 return NotFound();
             }
-            ViewData["LocationID"] = new SelectList(_context.Location, "LocationID", "LocationID", seeder.LocationID);
-            return View(seeder);
+            ViewData["LocationId"] = new SelectList(_context.Location, "LocationID", "LocationID", supplier.LocationId);
+            return View(supplier);
         }
 
-        // POST: Seeder/Edit/5
+        // POST: Supplier/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("SeederID,LocationID,SeederName")] Seeder seeder)
+        public async Task<IActionResult> Edit(int id, [Bind("SupplierId,LocationId,SupplierName")] Supplier supplier)
         {
-            if (id != seeder.SeederID)
+            if (id != supplier.SupplierId)
             {
                 return NotFound();
             }
@@ -102,12 +102,12 @@ namespace crosam.Controllers
             {
                 try
                 {
-                    _context.Update(seeder);
+                    _context.Update(supplier);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!SeederExists(seeder.SeederID))
+                    if (!SupplierExists(supplier.SupplierId))
                     {
                         return NotFound();
                     }
@@ -118,11 +118,11 @@ namespace crosam.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["LocationID"] = new SelectList(_context.Location, "LocationID", "LocationID", seeder.LocationID);
-            return View(seeder);
+            ViewData["LocationId"] = new SelectList(_context.Location, "LocationID", "LocationID", supplier.LocationId);
+            return View(supplier);
         }
 
-        // GET: Seeder/Delete/5
+        // GET: Supplier/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -130,31 +130,31 @@ namespace crosam.Controllers
                 return NotFound();
             }
 
-            var seeder = await _context.Seeder
+            var supplier = await _context.Supplier
                 .Include(s => s.Location)
-                .FirstOrDefaultAsync(m => m.SeederID == id);
-            if (seeder == null)
+                .FirstOrDefaultAsync(m => m.SupplierId == id);
+            if (supplier == null)
             {
                 return NotFound();
             }
 
-            return View(seeder);
+            return View(supplier);
         }
 
-        // POST: Seeder/Delete/5
+        // POST: Supplier/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var seeder = await _context.Seeder.FindAsync(id);
-            _context.Seeder.Remove(seeder);
+            var supplier = await _context.Supplier.FindAsync(id);
+            _context.Supplier.Remove(supplier);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool SeederExists(int id)
+        private bool SupplierExists(int id)
         {
-            return _context.Seeder.Any(e => e.SeederID == id);
+            return _context.Supplier.Any(e => e.SupplierId == id);
         }
     }
 }
