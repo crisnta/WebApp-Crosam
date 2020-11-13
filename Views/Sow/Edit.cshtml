@@ -1,0 +1,79 @@
+@model crosam.Models.Sow
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Sow</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SowId" />
+            <div class="form-group">
+                <label asp-for="CuelgaTypeId" class="control-label"></label>
+                <select asp-for="CuelgaTypeId" class="form-control" asp-items="ViewBag.CuelgaTypeId"></select>
+                <span asp-validation-for="CuelgaTypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SupplierId" class="control-label"></label>
+                <select asp-for="SupplierId" class="form-control" asp-items="ViewBag.SupplierId"></select>
+                <span asp-validation-for="SupplierId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeederId" class="control-label"></label>
+                <select asp-for="SeederId" class="form-control" asp-items="ViewBag.SeederId"></select>
+                <span asp-validation-for="SeederId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubstratumId" class="control-label"></label>
+                <select asp-for="SubstratumId" class="form-control" asp-items="ViewBag.SubstratumId"></select>
+                <span asp-validation-for="SubstratumId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CuelgaId" class="control-label"></label>
+                <select asp-for="CuelgaId" class="form-control" asp-items="ViewBag.CuelgaId"></select>
+                <span asp-validation-for="CuelgaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeedId" class="control-label"></label>
+                <select asp-for="SeedId" class="form-control" asp-items="ViewBag.SeedId"></select>
+                <span asp-validation-for="SeedId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BouyTypeId" class="control-label"></label>
+                <select asp-for="BouyTypeId" class="form-control" asp-items="ViewBag.BouyTypeId"></select>
+                <span asp-validation-for="BouyTypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Linea" class="control-label"></label>
+                <input asp-for="Linea" class="form-control" />
+                <span asp-validation-for="Linea" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CantidadColgado" class="control-label"></label>
+                <input asp-for="CantidadColgado" class="form-control" />
+                <span asp-validation-for="CantidadColgado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fecha" class="control-label"></label>
+                <input asp-for="Fecha" class="form-control" />
+                <span asp-validation-for="Fecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

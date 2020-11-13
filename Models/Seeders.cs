@@ -10,6 +10,7 @@ namespace crosam.Models
         public int LocationID { get; set; }
         public string SeederName { get; set; }
         public virtual Location Location { get; set; }
+        public virtual ICollection<Sow> Sows { get; set; }
     }
 
 }

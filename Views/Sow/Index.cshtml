@@ -1,0 +1,89 @@
+@model IEnumerable<crosam.Models.Sow>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Linea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CantidadColgado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CuelgaType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplier)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seeder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Substratum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cuelga)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BouyType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Linea)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CantidadColgado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CuelgaType.CuelgaTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Supplier.SupplierName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Seeder.SeederName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Substratum.SubstratumName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cuelga.CuelgaLenght)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Seed.SeedSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BouyType.BouyTypeName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SowId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.SowId">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.SowId">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

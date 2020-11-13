@@ -14,11 +14,6 @@ namespace crosam.Data
         {
         }
 
-        public DbSet<Location> Locations;   
-        public DbSet<Seeder> Seeders; 
-         public DbSet<Supplier> Suppliers; 
-
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             //Configuración que se ejecuta primero
@@ -74,6 +69,18 @@ namespace crosam.Data
         public DbSet<crosam.Models.Seeder> Seeder { get; set; }
 
         public DbSet<crosam.Models.Supplier> Supplier { get; set; }
+
+        public DbSet<crosam.Models.BouyType> BouyType { get; set; }
+
+        public DbSet<crosam.Models.Cuelga> Cuelga { get; set; }
+
+        public DbSet<crosam.Models.CuelgaType> CuelgaType { get; set; }
+
+        public DbSet<crosam.Models.Seed> Seed { get; set; }
+
+        public DbSet<crosam.Models.Sow> Sow { get; set; }
+
+        public DbSet<crosam.Models.Substratum> Substratum { get; set; }
 
     }
 }
