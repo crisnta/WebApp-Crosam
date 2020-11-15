@@ -10,6 +10,7 @@ namespace crosam.Models{
         [Range(1, 100)]
         [DataType(DataType.Currency)]
         [Column(TypeName = "decimal(18, 4)")]
+        [Display(Name ="Tamaño Semilla")]
         public decimal SeedSize { get; set; }
         public virtual ICollection<Sow> Sows { get; set; }
     }

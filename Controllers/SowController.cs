@@ -100,13 +100,13 @@ namespace crosam.Controllers
             {
                 return NotFound();
             }
-            ViewData["BouyTypeId"] = new SelectList(_context.BouyType, "BouyTypeId", "BouyTypeId", sow.BouyTypeId);
-            ViewData["CuelgaId"] = new SelectList(_context.Cuelga, "CuelgaId", "CuelgaId", sow.CuelgaId);
-            ViewData["CuelgaTypeId"] = new SelectList(_context.CuelgaType, "CuelgaTypeId", "CuelgaTypeId", sow.CuelgaTypeId);
-            ViewData["SeedId"] = new SelectList(_context.Seed, "SeedId", "SeedId", sow.SeedId);
-            ViewData["SeederId"] = new SelectList(_context.Seeder, "SeederID", "SeederID", sow.SeederId);
-            ViewData["SubstratumId"] = new SelectList(_context.Set<Substratum>(), "SubstratumId", "SubstratumId", sow.SubstratumId);
-            ViewData["SupplierId"] = new SelectList(_context.Supplier, "SupplierId", "SupplierId", sow.SupplierId);
+            ViewData["BouyTypeId"] = new SelectList(_context.BouyType, "BouyTypeId", "BouyTypeName", sow.BouyTypeId);
+            ViewData["CuelgaId"] = new SelectList(_context.Cuelga, "CuelgaId", "CuelgaLenght", sow.CuelgaId);
+            ViewData["CuelgaTypeId"] = new SelectList(_context.CuelgaType, "CuelgaTypeId", "CuelgaTypeName", sow.CuelgaTypeId);
+            ViewData["SeedId"] = new SelectList(_context.Seed, "SeedId", "SeedSize", sow.SeedId);
+            ViewData["SeederId"] = new SelectList(_context.Seeder, "SeederID", "SeederName", sow.SeederId);
+            ViewData["SubstratumId"] = new SelectList(_context.Set<Substratum>(), "SubstratumId", "SubstratumName", sow.SubstratumId);
+            ViewData["SupplierId"] = new SelectList(_context.Supplier, "SupplierId", "SupplierName", sow.SupplierId);
             return View(sow);
         }
 
