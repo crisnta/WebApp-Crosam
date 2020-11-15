@@ -35,8 +35,6 @@ namespace crosam.Data
              builder.Entity<Location>(entityTypeBuilder =>
              {
                  entityTypeBuilder.ToTable("Location");
-
-    
                  entityTypeBuilder.Property(l => l.LocationName)
                  .HasMaxLength(20);
 
@@ -45,8 +43,6 @@ namespace crosam.Data
              builder.Entity<Seeder>(entityTypeBuilder =>
              {
                  entityTypeBuilder.ToTable("Seeder");
-
-    
                  entityTypeBuilder.Property(s => s.SeederName)
                  .HasMaxLength(20);
 
@@ -55,13 +51,19 @@ namespace crosam.Data
              builder.Entity<Supplier>(entityTypeBuilder =>
              {
                  entityTypeBuilder.ToTable("Supplier");
-
-    
                  entityTypeBuilder.Property(su => su.SupplierName)
                  .HasMaxLength(20);
 
              });
- 
+             builder.Entity<Seed>(entityTypeBuilder =>
+             {
+                 entityTypeBuilder.ToTable("Seed");
+                 entityTypeBuilder.Property(se => se.SeedSize)
+                 .HasColumnType("decimal(18,4)");
+             });
+
+
+                
         }
 
         public DbSet<crosam.Models.Location> Location { get; set; }
