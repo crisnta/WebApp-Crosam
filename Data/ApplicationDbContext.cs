@@ -84,5 +84,8 @@ namespace crosam.Data
 
         public DbSet<crosam.Models.Substratum> Substratum { get; set; }
 
+        public DbSet<crosam.Models.Siembras> Siembras { get; set; }
+        public DbSet<crosam.Models.ServicioFlete> ServicioFlete { get; set; }
+
     }
 }

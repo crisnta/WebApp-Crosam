@@ -1,0 +1,77 @@
+@model IEnumerable<crosam.Models.Siembras>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NroGuia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Recepcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorUnidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GastoSemilla)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GastoFlete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplier)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServicioFlete)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NroGuia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Recepcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorUnidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GastoSemilla)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GastoFlete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Supplier.SupplierId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServicioFlete.ServicioFleteId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SiembraId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SiembraId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SiembraId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

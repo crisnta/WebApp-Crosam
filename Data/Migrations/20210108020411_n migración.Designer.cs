@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using crosam.Data;
 
 namespace crosam.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210108020411_n migración")]
+    partial class nmigración
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -244,59 +246,6 @@ namespace crosam.Data.Migrations
                     b.ToTable("Seeder");
                 });
 
-            modelBuilder.Entity("crosam.Models.ServicioFlete", b =>
-                {
-                    b.Property<int>("ServicioFleteId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("ServicioFleteName")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("ServicioFleteId");
-
-                    b.ToTable("ServicioFlete");
-                });
-
-            modelBuilder.Entity("crosam.Models.Siembras", b =>
-                {
-                    b.Property<int>("SiembraId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("TEXT");
-
-                    b.Property<decimal>("GastoFlete")
-                        .HasColumnType("TEXT");
-
-                    b.Property<decimal>("GastoSemilla")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("NroGuia")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("Recepcion")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("ServicioFleteId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("SupplierId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<decimal>("ValorUnidad")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("SiembraId");
-
-                    b.HasIndex("ServicioFleteId");
-
-                    b.HasIndex("SupplierId");
-
-                    b.ToTable("Siembras");
-                });
-
             modelBuilder.Entity("crosam.Models.Sow", b =>
                 {
                     b.Property<int>("SowId")
@@ -524,21 +473,6 @@ namespace crosam.Data.Migrations
                     b.HasOne("crosam.Models.Location", "Location")
                         .WithMany("seeders")
                         .HasForeignKey("LocationID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("crosam.Models.Siembras", b =>
-                {
-                    b.HasOne("crosam.Models.ServicioFlete", "ServicioFlete")
-                        .WithMany("Siembras")
-                        .HasForeignKey("ServicioFleteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("crosam.Models.Supplier", "Supplier")
-                        .WithMany()
-                        .HasForeignKey("SupplierId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
